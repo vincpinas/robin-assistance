@@ -7,8 +7,6 @@ export interface language {
 
 export interface LanguageProviderProps {
   children: ReactNode;
-  lang: language;
-  setLang: Dispatch<language>;
 };
 
 export interface LanguageProviderInitialState {

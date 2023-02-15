@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { LanguageProviderInitialState, LanguageProviderProps } from "../../@types/lang";
-import { translations, languages } from './languages'
+import { translations, languages } from './languages';
+import Cookies from 'cookies-js';
+
 
 const INITIAL_STATE: LanguageProviderInitialState = {
   dict: translations.english,
@@ -11,7 +13,13 @@ const INITIAL_STATE: LanguageProviderInitialState = {
 // Context initialization
 export const LanguageContext = createContext(INITIAL_STATE);
 
-export const LanguageProvider = ({ children, lang, setLang }: LanguageProviderProps) => {
+export const LanguageProvider = ({ children }: LanguageProviderProps) => {
+  const [lang, setLang] = useState(
+    Cookies.get('lang') ? JSON.parse(Cookies.get('lang')) :
+      languages.find(o => navigator.language.includes(o.abbreviation.toLocaleLowerCase())) ? languages.find(o => navigator.language.includes(o.abbreviation.toLocaleLowerCase()))
+        : languages[0]
+  );
+
   const getDictionary = () => {
     switch (lang.abbreviation) {
       case "EN":
@@ -31,7 +39,7 @@ export const LanguageProvider = ({ children, lang, setLang }: LanguageProviderPr
 
   return (
     <LanguageContext.Provider
-      value={{ dict: currentDictionary, lang: lang, setLang }}
+      value={{ dict: currentDictionary, lang, setLang }}
     >
       {children}
     </LanguageContext.Provider>

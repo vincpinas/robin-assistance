@@ -4,7 +4,9 @@
 .c-language {
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
   @include slide-in-animation;
   z-index: $index-4 !important;
 
