@@ -62,15 +62,10 @@ table {
     text-rendering: optimizeLegibility;
 }
 
-#root {
+#root, .App {
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: row;
-
-    @media #{$tablet-down} {
-        flex-direction: column;
-    }
 }
 
 

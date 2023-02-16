@@ -1,0 +1,46 @@
+.c-scrolldiv {
+  &__wrapper {
+    pointer-events: none;
+    width: 100%;
+    position: relative;
+  }
+
+  &__move {
+    pointer-events: none;
+    background-color: black;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+  }
+
+
+  &__text {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 4rem 10rem;
+
+    &.-second {
+      margin-left: auto;
+      padding-left: 3rem;
+    }
+  }
+
+  &__text {
+    h4 {
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    h1 {
+      font-size: 100px;
+      line-height: 90px;
+    }
+
+  }
+}
