@@ -1,18 +1,19 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./ScrollDiv.scss";
 
 function ScrollDiv() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
     gsap.timeline({
       scrollTrigger: {
         trigger: ".c-scrolldiv__wrapper",
         scrub: 1,
         start: "top top",
-        end: "+=100%",
+        end: "+=100%"
       }
     })
       .to(".c-scrolldiv__move", {
@@ -25,7 +26,9 @@ function ScrollDiv() {
 
   return (
     <div className="c-scrolldiv__wrapper">
-      <div className="c-scrolldiv__move"></div>
+      <div className="c-scrolldiv__move">
+        <canvas ref={canvasRef} className="c-scrolldiv__canvas" />
+      </div>
       <div className="c-scrolldiv__text">
         <h4>Keep your distance</h4>
         <h1>Staying <br /> Seperate. <br /> Together.</h1>
