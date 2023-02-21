@@ -24,7 +24,7 @@
     max-width: 100%;
     padding: 0.5rem 0;
     background: $background;
-    max-height: 9rem;
+    max-height: 12rem; // Every 2 rem displays 1 language
     overflow-y: scroll;
 
     &Item {

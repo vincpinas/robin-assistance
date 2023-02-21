@@ -3,30 +3,105 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import "./ScrollDiv.scss";
 
-function ScrollDiv() {
+interface scrollDivOpts {
+  markers?: boolean;
+}
+
+const markerStyle = {
+  backgroundColor: "black",
+}
+
+function ScrollDiv({ markers, }: scrollDivOpts) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const context = canvasRef.current?.getContext("2d");
+  const frameCount = 68;
+  const [images, setImages] = useState<any[]>([]);
+  const [device] = useState({ frame: 0 });
+  let tl: GSAPTimeline;
+
+  const currentFrame = (index: number) => (
+    `./Assets/phone/download (${index}).png`
+  );
+
+  function render() {
+    if (canvasRef.current && context) {
+      canvasRef.current.width = window.innerWidth / 2;
+      canvasRef.current.height = window.innerHeight / 1.1;
+
+      context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+
+      let wrh = images[device.frame].width / images[device.frame].height;
+      let width = canvasRef.current.width;
+      let height = width / wrh;
+
+      if(height > width) {
+        height = canvasRef.current.height;
+        width = height * wrh;
+      }
+
+      let xOffset = width < canvasRef.current.width ? ((canvasRef.current.width - width) / 2) : 0;
+      let yOffset = height < canvasRef.current.height ? ((canvasRef.current.height - height) / 2) : 0;
+
+      context.drawImage(images[device.frame], xOffset, yOffset, width, height);
+    }
+  }
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".c-scrolldiv__wrapper",
-        scrub: 1,
-        start: "top top",
-        end: "+=100%"
+    if (canvasRef.current && images) {
+      canvasRef.current.width = window.innerWidth / 2;
+      canvasRef.current.height = window.innerHeight / 1.1;
+
+      let imageList = [];
+
+      for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        imageList.push(img);
       }
-    })
-      .to(".c-scrolldiv__move", {
-        ease: "none",
-        xPercent: -100,
-        yPercent: 100,
+
+      imageList[0].onload = render;
+
+      if(images.length <= 0) {
+        setImages(imageList);
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+      tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".c-scrolldiv__wrapper",
+          scrub: 0.5,
+          start: "top top",
+          end: "+=100%"
+        }
       })
-  }, [])
+        .to(".c-scrolldiv__move", {
+          ease: "none",
+          xPercent: -100,
+          yPercent: 100,
+        })
+        .to(device, {
+          frame: frameCount - 1,
+          snap: "frame",
+          ease: "none",
+          scrollTrigger: {
+            scrub: 0.5,
+            start: "top top",
+            end: "+=100%"
+          },
+          onUpdate: render
+        });
+    }
+
+    return () => {
+      tl.kill();
+    }
+
+  }, [canvasRef.current, images])
 
 
   return (
     <div className="c-scrolldiv__wrapper">
-      <div className="c-scrolldiv__move">
+      <div className="c-scrolldiv__move" style={markers ? markerStyle : {}}>
         <canvas ref={canvasRef} className="c-scrolldiv__canvas" />
       </div>
       <div className="c-scrolldiv__text">

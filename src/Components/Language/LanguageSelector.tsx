@@ -11,6 +11,7 @@ import { uniqueId } from '../../util'
 function LanguageSelector() {
   const [openList, setOpenList] = useState<boolean>(false);
   // Get current lang from the language context provider.
+  const languageList = languages.sort((a, b) => b.status - a.status);
   const { setLang, lang: selectedLang } = useLanguageContext();
 
   return (
@@ -19,7 +20,7 @@ function LanguageSelector() {
       {openList ?
         <div className="c-language__listWrapper -mt-1">
           <ul className="c-language__list">
-            {languages.map((lang) => {
+            {languageList.map((lang) => {
               let selected = lang.abbreviation === selectedLang.abbreviation ? true : false;
               let classname = "c-language__listItem -noselect";
               if (selected) classname += " -active"
