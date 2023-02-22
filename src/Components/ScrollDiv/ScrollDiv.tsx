@@ -69,9 +69,9 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
       tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".c-scrolldiv__wrapper",
-          scrub: 0.5,
+          scrub: 1,
           start: "top top",
-          end: "+=100%"
+          end: "+=65%"
         }
       })
         .to(".c-scrolldiv__move", {

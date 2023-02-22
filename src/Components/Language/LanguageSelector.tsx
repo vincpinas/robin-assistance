@@ -16,7 +16,7 @@ function LanguageSelector() {
 
   return (
     <div className="c-language">
-      <button className="c-language__button -menuButton -svg" onClick={() => setOpenList(!openList)}><FaGlobeEurope /> {selectedLang.abbreviation}</button>
+      <button className="c-language__button -svg" onClick={() => setOpenList(!openList)}><FaGlobeEurope /> {selectedLang.abbreviation}</button>
       {openList ?
         <div className="c-language__listWrapper -mt-1">
           <ul className="c-language__list">

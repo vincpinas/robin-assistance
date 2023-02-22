@@ -4,16 +4,45 @@
 .c-language {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  right: 1.75rem;
-  top: 0.5rem;
   @include slide-in-animation;
   z-index: $index-4 !important;
+
+  &__button {
+    background: darken($background, 7.5%);
+    color: $background-contrast;
+    border: 2px solid darken($background, 15%);
+    padding: 0.2rem 0.5rem;
+    border-radius: $border-radius--primary;
+    display: flex;
+    margin-bottom: 0;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    width: fit-content;
+    margin-left: auto;
+    transition: $transition-fast;
+  
+    svg {
+      font-size: 1.3em;
+    }
+  
+    &.-svg {
+      svg {
+        margin-right: 0.5rem;
+      }
+    }
+  
+    &:hover {
+      background-color: darken($background, 15%);
+      color: darken($background-contrast, 15%);
+    }
+  }
 
   &__listWrapper {
     position: absolute;
     right: 0rem;
-    top: 100%;
+    top: 150%;
     width: 14rem;
     background: $background;
     padding: 0.5rem;
@@ -24,12 +53,12 @@
     max-width: 100%;
     padding: 0.5rem 0;
     background: $background;
-    max-height: 12rem; // Every 2 rem displays 1 language
+    max-height: 8rem; // Every 2 rem displays 1 language
     overflow-y: scroll;
 
     &Item {
       @include font--primary(500);
-      color: $background-contrast;
+      color: $text-primary;
       border-radius: $border-radius--primary;
       padding: 1rem;
       margin-right: 0.25rem;

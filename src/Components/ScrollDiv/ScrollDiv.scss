@@ -1,8 +1,11 @@
+@import "../../Scss/Variables";
+
 .c-scrolldiv {
   &__wrapper {
     pointer-events: none;
     width: 100%;
     position: relative;
+    height: 100%;
   }
 
   &__move {
@@ -15,6 +18,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media #{$normal-down} {
+      display: none;
+    }
   }
 
   &__canvas {
@@ -30,23 +37,19 @@
     height: 100%;
     padding: 4rem 10rem;
 
+    @media #{$normal-down} {
+      max-width: 100%;
+    }
+
     &.-second {
       margin-left: auto;
       padding-left: 3rem;
     }
-  }
 
-  &__text {
     h4 {
       text-transform: uppercase;
       font-weight: 500;
       margin-bottom: 0;
     }
-
-    h1 {
-      font-size: 100px;
-      line-height: 90px;
-    }
-
   }
 }

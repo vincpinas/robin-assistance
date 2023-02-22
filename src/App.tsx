@@ -1,15 +1,18 @@
-import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navigation from './Components/Navigation/Navigation';
+import Home from './Pages/Home/Home';
 import "./Scss/App.scss";
-import LanguageSelector from "./Components/Language/LanguageSelector";
-import ScrollDiv from "./Components/ScrollDiv/ScrollDiv";
+
 
 function App() {
 
   return (
-    <div id="App">
-      <LanguageSelector />
-      <ScrollDiv markers />
-    </div>
+    <>
+      <Navigation />
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
+    </>
   )
 }
 

@@ -1,0 +1,106 @@
+@import '../../Scss/Mixins';
+@import '../../Scss/Variables';
+
+.c-nav {
+  background: $background;
+  z-index: $index-2;
+  width: 100%;
+  position: fixed;
+
+  .c-navHeader {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    padding: 1.5rem 8rem 1.5rem 8rem;
+    @include drop-in-animation(0.1s);
+
+    @media #{$mobile-down} {
+      padding: $base-margin;
+    }
+  }
+
+  .c-navLinkWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+
+    button {
+      background: none;
+      outline: none;
+      border: none;
+    }
+
+    a {
+      background: darken($color: $background, $amount: 7.5%);
+      border-radius: $border-radius--primary;
+      transition: $transition-fast;
+      padding: 0.25rem 1rem;
+      
+      &:hover {
+        background: darken($color: $background, $amount: 15%);
+      }
+    }
+
+    @for $i from 1 through 5 {
+      *:nth-child(#{$i}) {
+        @include drop-in-animation(0.2 + $i * 0.08s);
+        @include font--primary(700);
+        margin: 0px $base-margin 0px 0px;
+        color: $text-primary;
+      }
+    }
+
+    @media #{$tablet-down} {
+      display: none;
+    }
+  }
+
+  .c-navHam {
+    display: none;
+    margin-left: auto;
+    margin-right: 1rem;
+
+    @media #{$tablet-down} {
+      display: initial;
+      @include drop-in-animation(0.25s);
+      font-size: 30px;
+    }
+  }
+
+  .c-navOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: $index-4;
+    background-color: $background;
+    transition: all $transition-normal;
+    left: -100%;
+
+    &.active {
+      left: 0;
+    }
+  }
+
+  &LinkList {
+    padding: $base-margin;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      color: $special-primary;
+      margin: calc($base-margin / 3);
+      // @include button-hovered;
+      padding: 17px 110px;
+    }
+  }
+}
