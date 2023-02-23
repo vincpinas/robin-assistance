@@ -19,9 +19,11 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
   const [device] = useState({ frame: 0 });
   let tl: GSAPTimeline;
 
-  const currentFrame = (index: number) => (
-    `./Assets/phone/download (${index}).png`
-  );
+  const currentFrame = (index: number) => {
+    // `./Assets/phone/download (${index}).png`
+    if(index < 10) return `./Assets/frames/000${index}.png`;
+    else return `./Assets/frames/00${index}.png`;
+  };
 
   function render() {
     if (canvasRef.current && context) {
