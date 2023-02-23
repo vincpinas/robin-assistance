@@ -73,7 +73,7 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
           trigger: ".c-scrolldiv__wrapper",
           scrub: 1,
           start: "top top",
-          end: "+=65%"
+          end: "+=80%"
         }
       })
         .to(".c-scrolldiv__move", {
@@ -88,7 +88,7 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
           scrollTrigger: {
             scrub: 0.5,
             start: "top top",
-            end: "+=100%"
+            end: "+=80%"
           },
           onUpdate: render
         });
