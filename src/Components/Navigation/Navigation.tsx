@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Logo from '../../Assets/logo.svg';
-import * as Go from 'react-icons/go';
-import './Navigation.scss'
-import LanguageSelector from '../Language/LanguageSelector';
-import { useLanguageContext } from '../Language/LanguageProvider';
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Logo from "../../Assets/logo.svg";
+import * as Go from "react-icons/go";
+import "./Navigation.scss"
+import LanguageSelector from "../Language/LanguageSelector";
+import { useLanguageContext } from "../Language/LanguageProvider";
+import { mobile, scrollSetter } from "../../util";
 
 function Navigation() {
   const [overlay, setOverlay] = useState<boolean>(false);
@@ -13,25 +14,21 @@ function Navigation() {
   const navigate = useNavigate();
   const { dict } = useLanguageContext();
 
-  const scrollSetter = (elem: any) => {
-    document.querySelector(elem).scrollIntoView({ behavior: 'smooth', block: 'end' });
-  }
-
   const logoClick = () => {
-    if (location.pathname === "/") document.querySelector("body")?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (location.pathname === "/") document.querySelector("body")?.scrollIntoView({ behavior: "smooth", block: "start" });
     else navigate("/");
   }
 
   return (
-    <div className='c-nav'>
-      <div className={overlay ? 'c-navOverlay active' : 'c-navOverlay'} onClick={overlaySetter}>
-        <ul className='c-navLinkList'>
+    <div className="c-nav">
+      <div className={overlay ? "c-navOverlay active" : "c-navOverlay"} onClick={overlaySetter}>
+        <ul className="c-navLinkList">
 
         </ul>
       </div>
-      <header className='c-navHeader'>
+      <header className="c-navHeader">
         <img src={Logo} alt="logo" onClick={logoClick} />
-        <div className='c-navLinkWrapper'>
+        <div className="c-navLinkWrapper">
           <button onClick={logoClick}>Home</button>
           {
             location.pathname === "/" ?
@@ -43,10 +40,10 @@ function Navigation() {
               : null
           }
         </div>
-        <Go.GoThreeBars className='c-navHam' onClick={overlaySetter} />
-        <div className='c-navOptions'>
+        <Go.GoThreeBars className="c-navHam" onClick={overlaySetter} />
+        <div className="c-navOptions">
           <LanguageSelector />
-          <Link to='/sign-up' className='-cta'>{dict.navigation.signup}</Link>
+          { mobile ? <button className="-cta">Download</button> : <Link to="/sign-up" className="-cta">{dict.navigation.signup}</Link>  }
         </div>
       </header>
     </div>

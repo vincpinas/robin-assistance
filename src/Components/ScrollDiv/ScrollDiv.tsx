@@ -1,7 +1,8 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
-import { mobile } from "../../util";
+import { Link } from "react-router-dom";
+import { mobile, scrollSetter } from "../../util";
 import { useLanguageContext } from "../Language/LanguageProvider";
 import "./ScrollDiv.scss";
 
@@ -113,12 +114,13 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
         <div className="c-scrolldiv__text">
           <h2>{dict.home.scroll.title}</h2>
           <p>{dict.home.scroll.text}</p>
-          { mobile ? <button className="-cta">Download</button> : <button className="-cta">{dict.navigation.signup}</button>  }
+          <span className="c-scrolldiv__textButtons">
+            {mobile ? <button className="-cta">Download</button> : <Link to="/sign-up" className="-cta">{dict.navigation.signup}</Link>}
+            <button onClick={() => scrollSetter("#about")} className="-second -cta">{dict.home.scroll.learn}</button>
+          </span>
         </div>
         <div className="c-scrolldiv__text -second">
-          <h4>How it works</h4>
-          <h2>Getting Started is <br /> Fast & Easy</h2>
-          <p>Spaced uses Bluetooth to locate and monitor devices/people near you. All you have to do is open the app, adjust your settings and choose a safety radius you are comfortable with and the app does the rest!</p>
+          <h2>{dict.home.scroll.benefits_title}</h2>
         </div>
       </div>
       <div className="-page"></div>

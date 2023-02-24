@@ -1,11 +1,11 @@
-import './LanguageSelector.scss'
-import { IoIosArrowDown } from 'react-icons/io'
-import { FiCheck } from 'react-icons/fi'
-import { useState } from 'react'
-import { languages } from './languages'
-import { useLanguageContext } from './LanguageProvider'
-import Cookies from 'cookies-js'
-import { uniqueId } from '../../util'
+import "./LanguageSelector.scss"
+import { IoIosArrowDown } from "react-icons/io"
+import { FiCheck } from "react-icons/fi"
+import { useState } from "react"
+import { languages } from "./languages"
+import { useLanguageContext } from "./LanguageProvider"
+import Cookies from "cookies-js"
+import { uniqueId } from "../../util"
 
 
 function LanguageSelector() {
@@ -34,7 +34,7 @@ function LanguageSelector() {
                 if (lang.status && !selected) {
                   setOpenList(false);
                   // Set language in cookies for persistence
-                  Cookies.set('lang', JSON.stringify(lang));
+                  Cookies.set("lang", JSON.stringify(lang));
                   // Set new lang in context.
                   setLang(lang)
                 }

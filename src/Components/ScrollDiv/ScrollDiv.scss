@@ -52,4 +52,19 @@
       margin-bottom: 0;
     }
   }
+
+  &__textButtons {
+    display: flex;
+    gap: 2rem;
+
+    &>* {
+      display: flex;
+      align-items: center;
+    }
+
+    .-second {
+      border: 2px solid white;
+      background: none;
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 import "./SectionWrapper.scss";
 
 interface SectionWrapperProps {
@@ -18,7 +18,7 @@ function SectionWrapper({ id, section, observer, className }: SectionWrapperProp
 
       let opts = {
         root: wrapperRef.current,
-        rootMargin: '0px',
+        rootMargin: "0px",
         threshold: 1.0,
       }
 

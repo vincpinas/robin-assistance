@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { LanguageProviderInitialState, LanguageProviderProps } from "../../@types/lang";
-import { translations, languages } from './languages';
-import Cookies from 'cookies-js';
+import { translations, languages } from "./languages";
+import Cookies from "cookies-js";
 
 
 const INITIAL_STATE: LanguageProviderInitialState = {
@@ -15,7 +15,7 @@ export const LanguageContext = createContext(INITIAL_STATE);
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [lang, setLang] = useState(
-    Cookies.get('lang') ? JSON.parse(Cookies.get('lang')) :
+    Cookies.get("lang") ? JSON.parse(Cookies.get("lang")) :
       languages.find(o => navigator.language.includes(o.abbreviation.toLocaleLowerCase())) ? languages.find(o => navigator.language.includes(o.abbreviation.toLocaleLowerCase()))
         : languages[0]
   );
