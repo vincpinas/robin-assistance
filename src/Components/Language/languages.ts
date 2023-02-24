@@ -70,15 +70,15 @@ export const translations = {
         benefits_title: "Benefits",
         benefits_independence: {
           title: "Improved Independence",
-          text: ""
+          text: "Robin reminds users to take medication or keep appointments can help them stay on top of their schedules and reduce their reliance on caregivers or family members."
         },
         benefits_stress: {
           title: "Reduced Stress",
-          text: ""
+          text: "Robin breaks down tasks into smaller, more manageable steps can help reduce these feelings and make tasks feel more achievable."
         },
         benefits_productivity: {
           title: "Increased Productivity",
-          text: ""
+          text: "Robin is designed to help people with brain injuries can improve their ability to complete tasks efficiently."
         },
       },
       testimonials: {

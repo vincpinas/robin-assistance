@@ -5,6 +5,30 @@
   display: flex;
   flex-direction: column;
   z-index: $index-4 !important;
+  
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba($color-white, 0.25);
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    width: 6px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
   &__button {
     @include font--primary(500);
@@ -13,7 +37,8 @@
     border: none;
     outline: none;
     display: flex;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
+    gap: 0.25rem;
     border-radius: $border-radius--primary;
     height: 100%;
     align-items: center;
@@ -27,41 +52,42 @@
       transition: transform $transition-fast;
     }
   
-    &.-svg {
-      svg {
-        margin-right: 0.5rem;
-      }
-    }
-  
     &:hover {
-      background-color: darken($background, 15%);
-      color: darken($background-contrast, 15%);
+      background-color: rgba($text-contrast, 0.4);
     }
   }
 
   &__listWrapper {
     position: absolute;
     right: 0rem;
-    top: 150%;
+    top: 100%;
     width: 14rem;
-    background: $background;
-    padding: 0.5rem;
     border-radius: $border-radius--primary;
+    overflow-y:auto; 
+    overflow-x:hidden; 
+    padding-right: 0.5rem;
+    max-height: 10rem;
   }
 
   &__list {
+    border-radius: $border-radius--primary;
+    background: rgba($text-contrast, 0.4);
     max-width: 100%;
-    padding: 0.5rem 0;
-    background: $background;
-    max-height: 8rem; // Every 2 rem displays 1 language
-    overflow-y: scroll;
+
+    &Item:first-of-type {
+      border-top-left-radius: $border-radius--primary;
+      border-top-right-radius: $border-radius--primary;
+    }
+
+    &Item:last-of-type {
+      border-bottom-left-radius: $border-radius--primary;
+      border-bottom-right-radius: $border-radius--primary;
+    }
 
     &Item {
       @include font--primary(300);
       color: $text-primary;
-      border-radius: $border-radius--primary;
-      padding: 1rem;
-      margin-right: 0.25rem;
+      padding: 1.25rem 1rem 1.25rem 1rem;
       display: flex;
       flex-direction: column;
     }
@@ -72,15 +98,11 @@
     }
 
     &Item:hover {
-      background-color: darken($background, 7.5%);
+      background-color: darken(rgba($text-contrast, 0.4), 7.5%);
     }
 
     &Item.-active {
-      padding: 0.5rem 1rem;
-    }
-
-    &Item.-active:hover {
-      background-color: $background;
+      padding: 0.75rem 0rem 0.75rem 1rem;
     }
 
     &Item svg {
@@ -101,11 +123,7 @@
     }
 
     &Item.-unavailable {
-      color: lighten($background-contrast, 40%);
-    }
-
-    &Item.-unavailable:hover {
-      background-color: $background;
+      color: darken($text-primary, 25%);
     }
   }
 }
