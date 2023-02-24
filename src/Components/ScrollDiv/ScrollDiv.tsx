@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
+import { mobile } from "../../util";
 import { useLanguageContext } from "../Language/LanguageProvider";
 import "./ScrollDiv.scss";
 
@@ -112,6 +113,7 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
         <div className="c-scrolldiv__text">
           <h2>{dict.home.scroll.title}</h2>
           <p>{dict.home.scroll.text}</p>
+          { mobile ? <button className="-cta">Download</button> : <button className="-cta">{dict.navigation.signup}</button>  }
         </div>
         <div className="c-scrolldiv__text -second">
           <h4>How it works</h4>

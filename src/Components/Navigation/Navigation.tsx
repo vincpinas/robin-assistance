@@ -46,7 +46,7 @@ function Navigation() {
         <Go.GoThreeBars className='c-navHam' onClick={overlaySetter} />
         <div className='c-navOptions'>
           <LanguageSelector />
-          <Link to='/sign-up'>{dict.navigation.signup}</Link>
+          <Link to='/sign-up' className='-cta'>{dict.navigation.signup}</Link>
         </div>
       </header>
     </div>

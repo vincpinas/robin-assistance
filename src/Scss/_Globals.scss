@@ -6,6 +6,16 @@
   align-items: center;
 }
 
+.-cta {
+  @include font--primary(500);
+  padding: 1rem 2rem;
+  background: #ff7f50;
+  border-radius: $border-radius--primary;
+  width: fit-content;
+  outline: none;
+  border: none;
+}
+
 .-noselect {
   -webkit-touch-callout: none;
   /* iOS Safari */
