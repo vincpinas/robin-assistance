@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
+import { useLanguageContext } from "../Language/LanguageProvider";
 import "./ScrollDiv.scss";
 
 interface scrollDivOpts {
@@ -18,10 +19,11 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
   const [images, setImages] = useState<any[]>([]);
   const [device] = useState({ frame: 0 });
   let tl: GSAPTimeline;
+  const { dict } = useLanguageContext();
 
   const currentFrame = (index: number) => {
     // `./Assets/phone/download (${index}).png`
-    if(index < 10) return `./Assets/frames/000${index}.png`;
+    if (index < 10) return `./Assets/frames/000${index}.png`;
     else return `./Assets/frames/00${index}.png`;
   };
 
@@ -36,7 +38,7 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
       let width = canvasRef.current.width;
       let height = width / wrh;
 
-      if(height > width) {
+      if (height > width) {
         height = canvasRef.current.height;
         width = height * wrh;
       }
@@ -63,7 +65,7 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
 
       imageList[0].onload = render;
 
-      if(images.length <= 0) {
+      if (images.length <= 0) {
         setImages(imageList);
       }
 
@@ -102,21 +104,24 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
 
 
   return (
-    <div className="c-scrolldiv__wrapper">
-      <div className="c-scrolldiv__move" style={markers ? markerStyle : {}}>
-        <canvas ref={canvasRef} className="c-scrolldiv__canvas" />
+    <>
+      <div className="c-scrolldiv__wrapper">
+        <div className="c-scrolldiv__move" style={markers ? markerStyle : {}}>
+          <canvas ref={canvasRef} className="c-scrolldiv__canvas" />
+        </div>
+        <div className="c-scrolldiv__text">
+          <h2>{dict.home.scroll.title}</h2>
+          <p>{dict.home.scroll.text}</p>
+        </div>
+        <div className="c-scrolldiv__text -second">
+          <h4>How it works</h4>
+          <h2>Getting Started is <br /> Fast & Easy</h2>
+          <p>Spaced uses Bluetooth to locate and monitor devices/people near you. All you have to do is open the app, adjust your settings and choose a safety radius you are comfortable with and the app does the rest!</p>
+        </div>
       </div>
-      <div className="c-scrolldiv__text">
-        <h4>Keep your distance</h4>
-        <h1>Staying <br /> Seperate. <br /> Together.</h1>
-        <p>Social distancing is hard. The Spaced app helps you <br /> keep your distance and stay safe!</p>
-      </div>
-      <div className="c-scrolldiv__text -second">
-        <h4>How it works</h4>
-        <h2>Getting Started is <br /> Fast & Easy</h2>
-        <p>Spaced uses Bluetooth to locate and monitor devices/people near you. All you have to do is open the app, adjust your settings and choose a safety radius you are comfortable with and the app does the rest!</p>
-      </div>
-    </div>
+      <div className="-page"></div>
+    </>
+
   )
 }
 

@@ -1,5 +1,5 @@
 import './LanguageSelector.scss'
-import { FaGlobeEurope } from 'react-icons/fa'
+import { IoIosArrowDown } from 'react-icons/io'
 import { FiCheck } from 'react-icons/fi'
 import { useState } from 'react'
 import { languages } from './languages'
@@ -16,7 +16,10 @@ function LanguageSelector() {
 
   return (
     <div className="c-language">
-      <button className="c-language__button -svg" onClick={() => setOpenList(!openList)}><FaGlobeEurope /> {selectedLang.abbreviation}</button>
+      <button className="c-language__button -svg" onClick={() => setOpenList(!openList)}>
+        {selectedLang.abbreviation}
+        <IoIosArrowDown style={openList ? { transform: "rotate(-180deg)" } : {}} />
+      </button>
       {openList ?
         <div className="c-language__listWrapper -mt-1">
           <ul className="c-language__list">

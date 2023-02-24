@@ -1,21 +1,24 @@
 import { useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Logo from '../../Assets/logo.svg';
 import * as Go from 'react-icons/go';
 import './Navigation.scss'
 import LanguageSelector from '../Language/LanguageSelector';
+import { useLanguageContext } from '../Language/LanguageProvider';
 
 function Navigation() {
   const [overlay, setOverlay] = useState<boolean>(false);
   const overlaySetter = () => setOverlay(!overlay);
   const location = useLocation();
   const navigate = useNavigate();
+  const { dict } = useLanguageContext();
 
   const scrollSetter = (elem: any) => {
     document.querySelector(elem).scrollIntoView({ behavior: 'smooth', block: 'end' });
   }
 
   const logoClick = () => {
-    if (location.pathname === "/") document.querySelector("#root")?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    if (location.pathname === "/") document.querySelector("body")?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     else navigate("/");
   }
 
@@ -27,22 +30,24 @@ function Navigation() {
         </ul>
       </div>
       <header className='c-navHeader'>
-        <button className='c-navLogo' onClick={logoClick}>LOGO</button>
+        <img src={Logo} alt="logo" onClick={logoClick} />
         <div className='c-navLinkWrapper'>
+          <button onClick={logoClick}>Home</button>
           {
             location.pathname === "/" ?
               <>
-                <button onClick={() => scrollSetter("#what")}>What is Robin assists?</button>
-                <button onClick={() => scrollSetter("#benefits")}>Benefits</button>
-                <button onClick={() => scrollSetter("#how")}>How does it work?</button>
+                <button onClick={() => scrollSetter("#testimonials")}>{dict.navigation.testimonials}</button>
+                <button onClick={() => scrollSetter("#about")}>{dict.navigation.about}</button>
                 <button onClick={() => scrollSetter("#contact")}>Contact</button>
               </>
               : null
           }
-          <Link to='/sign-up'>Sign Up</Link>
         </div>
         <Go.GoThreeBars className='c-navHam' onClick={overlaySetter} />
-        <LanguageSelector />
+        <div className='c-navOptions'>
+          <LanguageSelector />
+          <Link to='/sign-up'>{dict.navigation.signup}</Link>
+        </div>
       </header>
     </div>
   )

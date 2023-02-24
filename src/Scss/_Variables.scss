@@ -6,13 +6,13 @@ $background-alternate: #b7b7b7;
 $special-primary: #5E12FF;
 $special-secondary: #AA82FF;
 $special-extra: hwb(93 0% 31%);
-$text-primary: #333333;
+$text-primary: #FFFFFF;
 $text-secondary: #bfbfbf;
 $text-light: #AAAAAA;
 $text-hover: #4f4f4f;
 
-$font--primary: "Roboto";
-$font--secondary: "Comic";
+$font--primary: "Fira Sans";
+$font--secondary: "";
 
 // DESKTOP: Font sizes (in pixels) / line-heights
 $font-size--h1: 90;
@@ -116,7 +116,7 @@ $transition-normal: 0.55s;
 $transition-slow: 0.75s;
 
 /* Border Radius */
-$border-radius--primary: 4px;
+$border-radius--primary: 8px;
 $border-radius--secondary: 7px;
 
 /* Shadows */

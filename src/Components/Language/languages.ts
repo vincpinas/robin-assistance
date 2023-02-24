@@ -55,10 +55,84 @@ export const languages: language[] = [
 ];
 
 export const translations = {
+  // English translations
   english: {
+    navigation: {
+      testimonials: "Testimonials",
+      about: "About us",
+      signup: "Sign Up",
+    },
+    home: {
+      scroll: {
+        title: "Let Robin be your wingman!",
+        text: "Robin Assistant is a revolutionary new tool that offers a helping hand to people with special needs and their caring companions, making everyday activities more manageable and enjoyable.",
+        learn: "Learn more",
+        benefits_title: "Benefits",
+        benefits_independence: {
+          title: "Improved Independence",
+          text: ""
+        },
+        benefits_stress: {
+          title: "Reduced Stress",
+          text: ""
+        },
+        benefits_productivity: {
+          title: "Increased Productivity",
+          text: ""
+        },
+      },
+      testimonials: {
+        title: "",
+        sub: "",
+      },
+      about: {
+        title: "",
+        sub: "",
+      },
 
+    },
+    signup: {
+
+    },
+    login: {
+
+    },
   },
-  dutch: {
 
+
+
+  // Dutch translations
+  dutch: {
+    navigation: {
+      testimonials: "Reviews",
+      about: "Over ons",
+      signup: "Aanmelden",
+    },
+    home: {
+      scroll: {
+        title: "Laat Robin je wingman zijn!",
+        text: "Robin Assistant is een revolutionaire nieuwe tool die een helpende hand biedt aan mensen met speciale behoeften en hun zorgzame metgezellen, waardoor dagelijkse activiteiten beter beheersbaar en leuker worden.",
+        learn: "Lees meer",
+        benefits_title: "Voordelen",
+        benefits_independence: {
+          title: "Verbeterde",
+          text: ""
+        },
+        benefits_stress: {
+          title: "",
+          text: ""
+        },
+        benefits_productivity: {
+          title: "",
+          text: ""
+        },
+      },
+    },
+    signup: {
+
+    },
+    login: {
+
+    },
   },
 }
