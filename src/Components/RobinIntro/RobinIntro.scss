@@ -5,14 +5,17 @@
   // background: rgb(255, 127, 80);
   // background: linear-gradient(180deg, rgba(255, 127, 80, 1) 40%, rgba(134, 248, 255, 1) 100%);
   background: #86f8ff;
-  background: radial-gradient(ellipse at bottom, rgba(255, 127, 80, 1) 10%, rgba(134, 248, 255, 1));
+  background: radial-gradient(ellipse at bottom, rgba(246, 255, 80, 0.617) 5%, rgb(92, 212, 218) 60%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
 
-  &__logo {
-    width: 5rem;
+  &__sun {
+    bottom: 2rem;
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
   }
 
   &__ocean { 
