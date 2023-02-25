@@ -35,7 +35,7 @@ function RobinIntro() {
     RobinTL = gsap.timeline({
       scrollTrigger: {
         trigger: ".c-robinintro",
-        toggleActions: "play none pause reverse",
+        toggleActions: "play reset reset reset",
       },
     })
       .fromTo(".c-robinintro__logo", { yPercent: jump_bottom, xPercent: -jump_length }, {

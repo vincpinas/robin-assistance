@@ -2,8 +2,10 @@
 
 .c-robinintro {
   position: relative;
-  background: rgb(255, 127, 80);
-  background: linear-gradient(180deg, rgba(255, 127, 80, 1) 40%, rgba(134, 248, 255, 1) 100%);
+  // background: rgb(255, 127, 80);
+  // background: linear-gradient(180deg, rgba(255, 127, 80, 1) 40%, rgba(134, 248, 255, 1) 100%);
+  background: rgba(134, 248, 255, 1);
+  background: radial-gradient(ellipse at bottom, rgba(255, 127, 80, 1) 10%, rgba(134, 248, 255, 1));
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
