@@ -18,7 +18,7 @@ function LanguageSelector() {
     <div className="c-language">
       <button className="c-language__button -svg" onClick={() => setOpenList(!openList)}>
         {selectedLang.abbreviation}
-        <IoIosArrowDown style={openList ? { transform: "rotate(-180deg)" } : {}} />
+        <IoIosArrowDown style={openList ? {} : { transform: "rotate(-180deg)" }} />
       </button>
       {openList ?
         <div className="c-language__listWrapper -mt-1">

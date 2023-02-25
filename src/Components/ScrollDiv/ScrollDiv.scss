@@ -2,14 +2,12 @@
 
 .c-scrolldiv {
   &__wrapper {
-    pointer-events: none;
     width: 100%;
     position: relative;
     height: 100vh;
   }
 
   &__move {
-    pointer-events: none;
     height: 100%;
     position: absolute;
     top: 0;
@@ -45,12 +43,10 @@
       margin-left: auto;
       padding-left: 3rem;
     }
+  }
 
-    h4 {
-      text-transform: uppercase;
-      font-weight: 500;
-      margin-bottom: 0;
-    }
+  &__cards {
+    
   }
 
   &__textButtons {

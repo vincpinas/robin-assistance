@@ -27,7 +27,7 @@ function Navigation() {
         </ul>
       </div>
       <header className="c-navHeader">
-        <img src={Logo} alt="logo" onClick={logoClick} />
+        <img className="c-nav__logo" src={Logo} alt="logo" onClick={logoClick} />
         <div className="c-navLinkWrapper">
           <button onClick={logoClick}>Home</button>
           {
@@ -43,7 +43,7 @@ function Navigation() {
         <Go.GoThreeBars className="c-navHam" onClick={overlaySetter} />
         <div className="c-navOptions">
           <LanguageSelector />
-          { mobile ? <button className="-cta">Download</button> : <Link to="/sign-up" className="-cta">{dict.navigation.signup}</Link>  }
+          { mobile ? <button className="c-nav__cta -cta">Download</button> : <Link to="/sign-up" className="c-nav__cta -cta">{dict.navigation.signup}</Link>  }
         </div>
       </header>
     </div>

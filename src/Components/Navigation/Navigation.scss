@@ -31,7 +31,7 @@
     @for $i from 1 through 3 {
       &>*:nth-child(#{$i}):not(:last-child) {
         @include slide-in-animation(0.2 + $i * 0.15s);
-        margin-right: 0.5rem;
+        margin-right: 1rem;
       }
     }
   }
@@ -110,7 +110,7 @@
     flex-direction: column;
 
     a {
-      color: $special-primary;
+      color: $text-primary;
       margin: calc($base-margin / 3);
       // @include button-hovered;
       padding: 17px 110px;

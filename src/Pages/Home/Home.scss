@@ -1,8 +1,14 @@
+@import "../../Scss/Variables";
+
 .p-home {
   width: 100%;
-
-
-  background: rgb(68, 197, 215);
-  background: linear-gradient(180deg, rgba(68, 197, 215, 1) 0%, rgba(44, 162, 212, 1) 25%, rgba(12, 163, 184, 1) 50%, rgba(12, 184, 143, 1) 75%, rgba(12, 184, 101, 1) 100%);
+  background: (134, 248, 255, 1);
+  background: linear-gradient(180deg,
+      $dark-blue 20%,
+      rgba(134, 248, 255, 1) 40%,
+      rgb(3, 63, 133) 60%,
+      rgb(3, 53, 110) 80%,
+      rgb(1, 41, 86) 100%,
+    );
 
 }

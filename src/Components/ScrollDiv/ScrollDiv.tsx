@@ -90,6 +90,7 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
           snap: "frame",
           ease: "none",
           scrollTrigger: {
+            trigger: ".c-scrolldiv__wrapper",
             scrub: 0.5,
             start: "top top",
             end: "+=80%"
@@ -121,6 +122,9 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
         </div>
         <div className="c-scrolldiv__text -second">
           <h2>{dict.home.scroll.benefits_title}</h2>
+          <div className="c-scrolldiv__cards">
+
+          </div>
         </div>
       </div>
       <div className="-page"></div>
