@@ -26,24 +26,23 @@ function RobinIntro() {
         delay: 0,
       }, 1)
 
-    if (sunRef.current) {
-      Lottie.loadAnimation({
-        container: sunRef.current,
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        path: "./Assets/lottie/sun-icon.json"
-      })
-    }
+    const instance = Lottie.loadAnimation({
+      container: document.querySelector(".c-robinintro__sun")!,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "./Assets/lottie/sun-icon.json"
+    })
 
     return () => {
       NavTL.kill();
+      instance.destroy();
     }
   }, [])
 
   return (
     <div className="c-robinintro -page">
-      <div ref={sunRef} className="c-robinintro__sun"></div>
+      <div className="c-robinintro__sun"></div>
       <div className="c-robinintro__ocean">
         <span className="c-robinintro__wave -fourth" style={{ background: `url(${wave4}) repeat-x` }} />
         <span className="c-robinintro__wave -third" style={{ background: `url(${wave3}) repeat-x` }} />
