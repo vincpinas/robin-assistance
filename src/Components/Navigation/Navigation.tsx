@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Logo from "../../Assets/logo.svg";
+import Logo from "../../Assets/logo_text.svg";
 import * as Go from "react-icons/go";
 import "./Navigation.scss"
 import LanguageSelector from "../Language/LanguageSelector";
