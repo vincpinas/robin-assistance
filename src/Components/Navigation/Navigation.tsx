@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Logo from "../../Assets/logo_text.svg";
 import * as Go from "react-icons/go";
 import "./Navigation.scss"
 import LanguageSelector from "../Language/LanguageSelector";
 import { useLanguageContext } from "../Language/LanguageProvider";
 import { mobile, scrollSetter } from "../../util";
+import AnimatedLogo from "../AnimatedLogo/AnimatedLogo";
 
-function Navigation() {
+interface NavigationProps {
+  logoState?: boolean;
+}
+
+function Navigation({ logoState }: NavigationProps) {
   const [overlay, setOverlay] = useState<boolean>(false);
   const overlaySetter = () => setOverlay(!overlay);
   const location = useLocation();
@@ -27,7 +31,7 @@ function Navigation() {
         </ul>
       </div>
       <header className="c-navHeader">
-        <img className="c-nav__logo" src={Logo} alt="logo" onClick={logoClick} />
+        <AnimatedLogo className="c-nav__logo" onClick={logoClick} hidden={logoState ? logoState : false} />
         <div className="c-navLinkWrapper">
           <button onClick={logoClick}>Home</button>
           {
