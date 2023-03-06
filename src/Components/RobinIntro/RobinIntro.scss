@@ -2,14 +2,15 @@
 
 .c-robinintro {
   position: relative;
-  // background: rgb(255, 127, 80);
-  // background: linear-gradient(180deg, rgba(255, 127, 80, 1) 40%, rgba(134, 248, 255, 1) 100%);
-  background: #86f8ff;
   background: radial-gradient(ellipse at top,  rgb(255, 127, 80) 5%, rgb(69, 171, 215) 60%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
+
+  @media #{$mobile-down} {
+    background: linear-gradient(rgb(255, 127, 80) 5%, rgb(69, 171, 215) 50%);
+  }
 
   &__sun {
     bottom: 2rem;

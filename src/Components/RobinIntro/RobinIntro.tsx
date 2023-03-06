@@ -35,7 +35,7 @@ function RobinIntro() {
       },
     })
       .fromTo(".c-robinintro__sun", {
-        yPercent: -200,
+        yPercent: -250,
         scale: 5,
       }, {
         yPercent: 0,
