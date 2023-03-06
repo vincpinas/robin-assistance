@@ -1,3 +1,5 @@
+@import "../../Scss/Variables";
+
 .c-animlogo {
   overflow: hidden;
   width: 8rem;
@@ -11,5 +13,11 @@
   &__logo {
     transform: translateX(0) translateY(0);
     transition: all 1s;
+  }
+
+  #Robin {
+    @media #{$tablet-down} {
+      display: none;
+    }
   }
 }

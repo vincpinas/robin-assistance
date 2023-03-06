@@ -44,10 +44,10 @@ function Navigation({ logoState }: NavigationProps) {
               : null
           }
         </div>
-        <Go.GoThreeBars className="c-navHam" onClick={overlaySetter} />
         <div className="c-navOptions">
           <LanguageSelector />
           { mobile ? <button className="c-nav__cta -cta">Download</button> : <Link to="/sign-up" className="c-nav__cta -cta">{dict.navigation.signup}</Link>  }
+        <Go.GoThreeBars className="c-navHam" onClick={overlaySetter} />
         </div>
       </header>
     </div>

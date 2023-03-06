@@ -28,6 +28,10 @@
     justify-content: center;
     align-items: center;
 
+    * {
+      margin-bottom: 0;
+    }
+    
     @for $i from 1 through 3 {
       &>*:nth-child(#{$i}):not(:last-child) {
         @include slide-in-animation(0.2 + $i * 0.15s);

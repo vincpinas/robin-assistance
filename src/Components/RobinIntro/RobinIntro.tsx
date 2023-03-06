@@ -10,7 +10,7 @@ import wave4 from "../../Assets/waves/wave4.svg";
 
 function RobinIntro() {
   let NavTL: GSAPTimeline;
-  const sunRef = useRef<HTMLDivElement>(null);
+  let SunTL: GSAPTimeline;
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -26,6 +26,23 @@ function RobinIntro() {
         delay: 0,
       }, 1)
 
+    SunTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".c-robinintro",
+        scrub: true,
+        start: "top top",
+        end: "+=80%"
+      },
+    })
+      .fromTo(".c-robinintro__sun", {
+        yPercent: -200,
+        scale: 5,
+      }, {
+        yPercent: 0,
+        scale: 1.5,
+      })
+
+
     const instance = Lottie.loadAnimation({
       container: document.querySelector(".c-robinintro__sun")!,
       renderer: "svg",
@@ -36,6 +53,7 @@ function RobinIntro() {
 
     return () => {
       NavTL.kill();
+      SunTL.kill();
       instance.destroy();
     }
   }, [])
