@@ -10,9 +10,8 @@ function Home() {
       <div className="p-home">
         <div className="c-seperator" />
         <ScrollDiv />
-        <SectionWrapper id="testimonials" section={<div className="-page">testimonials</div>} observer />
-        <SectionWrapper id="about" section={<div className="-page">about</div>} observer />
-        <SectionWrapper id="contact" section={<div className="-page">Contact</div>} observer />
+        <SectionWrapper id="about" section={<div className="-page">About</div>} />
+        <SectionWrapper id="contact" section={<div className="-page">Contact</div>} />
       </div>
     </>
   )

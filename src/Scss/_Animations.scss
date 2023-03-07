@@ -138,3 +138,16 @@
     opacity: 0;
   }
 }
+
+@mixin slide-up-animation($start, $end, $dur: 1s) {
+  @keyframes slide-up {
+    from {
+      transform: translateY($start);
+    }
+    to {
+      transform: translateY($end);
+    }
+  }
+
+  animation: slide-up $dur ease-in-out forwards;
+}

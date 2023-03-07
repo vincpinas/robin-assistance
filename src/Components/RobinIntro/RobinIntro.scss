@@ -1,15 +1,39 @@
 @import "../../Scss/Variables";
+@import "../../Scss/Animations";
+@import "../../Scss/Mixins";
 
 .c-robinintro {
   position: relative;
-  background: radial-gradient(ellipse at top,  rgb(255, 127, 80) 5%, rgb(69, 171, 215) 60%);
+  background: radial-gradient(ellipse at top, $special-primary 5%, rgb(69, 171, 215) 60%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
 
   @media #{$mobile-down} {
-    background: linear-gradient(rgb(255, 127, 80) 5%, rgb(69, 171, 215) 50%);
+    background: linear-gradient($special-primary 5%, rgb(69, 171, 215) 50%);
+  }
+
+  &__scroll {
+    position: absolute;
+    background: none;
+    outline: none;
+    border: none;
+    bottom: 1rem;
+    z-index: $index-3;
+    @include font--primary(500);
+    @include scale-hover-animation(1.20, 2s);
+
+    &:hover {
+      color: $special-primary;
+    }
+
+    &Wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__sun {
@@ -26,6 +50,40 @@
     bottom:0;
     left:0;
     background: $dark-blue;
+    
+    &Overflow {
+      position: absolute;
+      background: $dark-blue;
+      width: 100%;
+      height: 10rem;
+    }
+  }
+
+  &__dolphin {
+    position: absolute;
+    transform: translateY(-90%);
+
+    &.-hidden {
+      transform: translateY(0%);
+    }
+    
+    @media #{$tablet-down} {
+      transform: translateY(-150%);
+      scale: 0.5;
+    }
+
+    @media #{$mobile-down} {
+      transform: translateY(-170%) translateX(-85%);
+      scale: 0.4;
+    }
+
+    #Robin_Tablet {
+      @include slide-up-animation(100%, 0%, 1.4s);
+    }
+
+    #Text_Bubble {
+      @include fade-in-custom(1s, 1.2s)
+    }
   }
   
   &__wave {

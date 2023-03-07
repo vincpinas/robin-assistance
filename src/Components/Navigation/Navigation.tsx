@@ -37,7 +37,6 @@ function Navigation({ logoState }: NavigationProps) {
           {
             location.pathname === "/" ?
               <>
-                <button onClick={() => scrollSetter("#testimonials")}>{dict.navigation.testimonials}</button>
                 <button onClick={() => scrollSetter("#about")}>{dict.navigation.about}</button>
                 <button onClick={() => scrollSetter("#contact")}>Contact</button>
               </>

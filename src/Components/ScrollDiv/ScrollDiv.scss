@@ -6,9 +6,6 @@
     position: relative;
     height: 100vh;
 
-    @media #{$normal-down} {
-      height: 50vh;
-    }
   }
 
   &__move {
@@ -53,10 +50,6 @@
         padding: 4rem 6rem;
       }
     }
-  }
-
-  &__cards {
-    
   }
 
   &__textButtons {
