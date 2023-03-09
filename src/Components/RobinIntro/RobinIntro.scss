@@ -68,13 +68,13 @@
     }
     
     @media #{$tablet-down} {
-      transform: translateY(-150%);
-      scale: 0.5;
+      transform: translateY(-105%) translateX(-20%);
+      scale: 0.75;
     }
 
     @media #{$mobile-down} {
-      transform: translateY(-170%) translateX(-85%);
-      scale: 0.4;
+      transform: translateY(-158%) translateX(-70%);
+      scale: 0.475;
     }
 
     #Robin_Tablet {

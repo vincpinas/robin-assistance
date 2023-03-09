@@ -1,0 +1,218 @@
+@import '../../Scss/Variables';
+@import '../../Scss/Mixins';
+
+.c-contact {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+
+  .contactHeading {
+    color: $text-secondary;
+    font-weight: 500;
+    margin-bottom: 5rem;
+  }
+
+  #contactFormWrapper {
+    display: flex;
+    background: rgba($background, 0.4);
+    border-radius: $border-radius--secondary;
+    box-shadow: $box-shadow--primary;
+
+    @media #{$tablet-down} {
+      flex-direction: column;
+      max-width: 100%;
+    }
+
+    .contactInfo {
+      color: $text-primary;
+      background-color: rgba($dark-blue, 0.55);
+      border-radius: inherit;
+      text-align: left;
+      padding: 60px 30px;
+
+      @for $i from 1 through 5 {
+        *:nth-child(#{$i}) {
+          @include drop-in-animation($i * 0.1s);
+        }
+      }
+
+      h3 {
+        color: $text-primary;
+        font-weight: 700;
+      }
+
+      ul {
+        margin-top: 2.5rem;
+
+        li {
+          margin: 1rem 0;
+          transition: all 300ms;
+          border: solid 2px transparent;
+          padding: 8px;
+          width: fit-content;
+          border-radius: $border-radius--primary;
+
+          a {
+            @include font--primary(300);
+            color: $text-primary;
+            line-height: 15px;
+
+            svg {
+              margin-right: 1rem;
+            }
+          }
+
+          &:hover {
+            border: solid 2px $light-blue;
+          }
+        }
+      }
+    }
+
+    #contactForm {
+      background-color: rgba($background, 0.4);
+      border-radius: inherit;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      @include font--primary(700);
+
+      .inputRow {
+        display: flex;
+
+        @media #{$tablet-down} {
+          flex-direction: column;
+          max-width: 100%;
+        }
+
+        .iF-label {
+          color: $dark-blue;
+        }
+
+        .iFe-label {
+          color: $label-highlight;
+        }
+
+        .iFerr-label {
+          color: $color-red;
+        }
+
+        label {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          color: $text-hover;
+          @include label;
+
+          @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+              @include drop-in-animation(0.5 + $i * 0.1s);
+            }
+          }
+
+          &:first-child {
+            margin-right: 6.5rem;
+          }
+
+
+          input {
+            background: none;
+            margin-top: 0.5rem;
+            border: none;
+            border-bottom: 2px solid $dark-blue;
+            color: $text-primary;
+            @include input;
+            padding: 3px;
+            outline: none;
+            caret-color: $text-hover;
+
+            &:focus {
+              border-bottom: 2px solid $dark-blue;
+            }
+          }
+
+          .iFerr-input {
+            border-bottom: 2px solid $color-red !important;
+
+            &::placeholder {
+              color: $color-red;
+            }
+
+            &:focus {
+              border-bottom: 2px solid $color-red !important;
+            }
+          }
+        }
+      }
+
+      div {
+        text-align: left;
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+
+        h4 {
+          font-weight: 700;
+          margin-bottom: 0;
+          @include drop-in-animation(0.65 + 0.1s);
+        }
+
+        .customRadioContainer {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          flex-wrap: wrap;
+
+          @for $i from 1 through 5 {
+            span:nth-child(#{$i}) {
+              @include drop-in-animation(0.75 + $i * 0.1s);
+            }
+          }
+        }
+      }
+
+      button {
+        margin-left: auto;
+        padding: 0.4rem 3rem;
+        background: $dark-blue;
+        border: 2px solid darken($dark-blue, 10%);
+        transition: all 500ms;
+        color: $text-primary;
+        box-shadow: $box-shadow--primary;
+        font-weight: 500;
+        border-radius: $border-radius--primary;
+
+        &.error {
+          background: $color-red;
+          border: 2px solid darken($color-red, 10%);
+        }
+
+        &.succces {
+          background: $color-green;
+          border: 2px solid darken($color-green, 10%);
+        }
+
+        span {
+          display: flex
+        }
+
+        svg {
+          @include font--primary(800);
+          font-size: 1.8em;
+        }
+      }
+
+      #messageRow {
+        label {
+          @include drop-in-animation(0.9 + 0.1s);
+          margin: 0 0 1rem 0;
+        }
+      }
+    }
+  }
+}

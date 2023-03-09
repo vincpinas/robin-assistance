@@ -31,3 +31,11 @@ export const mobile = (() => {
 export const scrollSetter = (elem: any) => {
   document.querySelector(elem).scrollIntoView({ behavior: "smooth", block: "end" });
 }
+
+export const API_URL = () => {
+  if(window.location.href.includes('ma-cloud')) {
+    return 'https://30472.hosts1.ma-cloud.nl/php-dash'
+  } else {
+    return 'http://127.0.0.1'
+  }
+};
