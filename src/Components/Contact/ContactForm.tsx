@@ -5,9 +5,11 @@ import * as Yup from 'yup';
 import RubberSpan from '../RubberSpan/RubberSpan';
 import { MdOutlineScheduleSend, MdOutlineCancelScheduleSend, MdOutlineSend, MdCheck } from 'react-icons/md';
 import { useContact } from '../../requests';
+import { useLanguageContext } from '../Language/LanguageProvider';
 
 function ContactForm() {
   const [mailStatus, setMailStatus] = useState<null | boolean>(null);
+  const { dict } = useLanguageContext();
 
   const { mutate: reqContact, isLoading } = useContact({
     onSuccess: (data: any) => {
@@ -48,11 +50,10 @@ function ContactForm() {
     },
     validationSchema: Yup.object().shape({
       firstname: Yup.string().required('Firstname is required'),
-      lastname: Yup.string().required('Lastname is required'),
+      lastname: Yup.string(),
       email: Yup.string().email('Email is niet geldig').required('Email is required'),
       phone: Yup.string()
-        .matches(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/g, 'Phone number is not valid')
-        .required('Phone number is required'),
+        .matches(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/g, 'Phone number is not valid'),
       message: Yup.string()
         .required('A message is required to be sent.')
         .min(10, 'A message has to be atleast 10 characters.'),
@@ -81,21 +82,21 @@ function ContactForm() {
     <form id='contactForm' onSubmit={formik.handleSubmit}>
       <span className='inputRow'>
         <label htmlFor='firstname' className={formik.errors.firstname ? 'iFerr-label' : ''}>
-          Firstname
+          {dict.home.contact.firstname}*
           <input
             className={formik.errors.firstname ? 'iFerr-input' : ''}
             type='text' onFocus={lAF} onChange={lOC} onBlur={lAB}
-            placeholder='Firstname' id='firstname'
+            placeholder={dict.home.contact.firstname} id='firstname'
             defaultValue={formik.initialValues.firstname}
           />
           {formik.errors.firstname && <span className='errorMessage'>{formik.errors.firstname}</span>}
         </label>
         <label htmlFor='lastname' className={formik.errors.lastname ? 'iFerr-label' : ''}>
-          Lastname
+          {dict.home.contact.lastname}
           <input
             className={formik.errors.lastname ? 'iFerr-input' : ''}
             type='text' onFocus={lAF} onChange={lOC} onBlur={lAB}
-            placeholder='Lastname' id='lastname'
+            placeholder={dict.home.contact.lastname} id='lastname'
             defaultValue={formik.initialValues.lastname}
           />
           {formik.errors.lastname && <span className='errorMessage'>{formik.errors.lastname}</span>}
@@ -103,7 +104,7 @@ function ContactForm() {
       </span>
       <span className='inputRow'>
         <label htmlFor='email' className={formik.errors.email ? 'iFerr-label' : ''}>
-          Email
+          {dict.home.contact.email}*
           <input
             className={formik.errors.email ? 'iFerr-input' : ''}
             type='text' onFocus={lAF} onChange={lOC} onBlur={lAB}
@@ -113,7 +114,7 @@ function ContactForm() {
           {formik.errors.email && <span className='errorMessage'>{formik.errors.email}</span>}
         </label>
         <label htmlFor='phone' className={formik.errors.phone ? 'iFerr-label' : ''}>
-          Phone number
+          {dict.home.contact.phone}
           <input
             className={formik.errors.phone ? 'iFerr-input' : ''}
             type='text' onFocus={lAF} onChange={lOC} onBlur={lAB}
@@ -125,10 +126,11 @@ function ContactForm() {
       </span>
       <div>
         <h4>
-          <RubberSpan letters="What's" margin={5} />
-          <RubberSpan letters="your" margin={5} />
-          <RubberSpan letters="question" margin={5} />
-          <RubberSpan letters="about?" margin={5} />
+          <RubberSpan letters={dict.home.contact.question_first} margin={5} />
+          <RubberSpan letters={dict.home.contact.question_second} margin={5} />
+          <RubberSpan letters={dict.home.contact.question_third} margin={5} />
+          <RubberSpan letters={dict.home.contact.question_fourth} margin={5} />
+          <RubberSpan letters={dict.home.contact.question_fifth} margin={5} />
         </h4>
         <div className='customRadioContainer'>
           <CustomRadio text="Recruitment" onChange={setSelected} selected={selected} value="recruitment" id="recruitment" />
@@ -138,7 +140,7 @@ function ContactForm() {
       </div>
       <span className='inputRow' id='messageRow'>
         <label htmlFor='message' className={formik.errors.message ? 'iFerr-label' : ''}>
-          Message
+          {dict.home.contact.message}*
           <input
             className={formik.errors.message ? 'iFerr-input' : ''}
             type='text' onFocus={lAF} onChange={lOC} onBlur={lAB}

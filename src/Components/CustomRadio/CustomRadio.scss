@@ -54,6 +54,7 @@
     padding-right: 8px;
     transition: all 100ms;
     @include input;
+    @include font--primary(400);
 
     &.unselected {
       color: $dark-blue;

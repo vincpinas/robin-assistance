@@ -29,6 +29,11 @@ function RobinIntro() {
         background: "#ff7f50",
         delay: 0,
       }, 1)
+      .to(".c-nav", {
+        background: "rgba(0, 0, 0, 0.16)",
+        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1);",
+        backdropFilter: "blur(5px)",
+      }, 1)
 
     SunTL = gsap.timeline({
       scrollTrigger: {

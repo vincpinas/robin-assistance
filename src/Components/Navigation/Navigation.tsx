@@ -13,7 +13,10 @@ interface NavigationProps {
 
 function Navigation({ logoState }: NavigationProps) {
   const [overlay, setOverlay] = useState<boolean>(false);
-  const overlaySetter = () => setOverlay(!overlay);
+  const overlaySetter = (link?: string) => {
+    setOverlay(!overlay);
+    link ? scrollSetter(link) : null;
+  };
   const location = useLocation();
   const navigate = useNavigate();
   const { dict } = useLanguageContext();
@@ -25,9 +28,17 @@ function Navigation({ logoState }: NavigationProps) {
 
   return (
     <div className="c-nav">
-      <div className={overlay ? "c-navOverlay active" : "c-navOverlay"} onClick={overlaySetter}>
+      <div className={overlay ? "c-navOverlay active" : "c-navOverlay"} onClick={() => overlaySetter()}>
         <ul className="c-navLinkList">
-
+          <button onClick={logoClick}>Home</button>
+          {
+            location.pathname === "/" ?
+              <>
+                <button onClick={() => overlaySetter("#about")}>{dict.navigation.about}</button>
+                <button onClick={() => overlaySetter("#contact")}>Contact</button>
+              </>
+              : null
+          }
         </ul>
       </div>
       <header className="c-navHeader">
@@ -45,8 +56,8 @@ function Navigation({ logoState }: NavigationProps) {
         </div>
         <div className="c-navOptions">
           <LanguageSelector />
-          { mobile ? <button className="c-nav__cta -cta">Download</button> : <Link to="/sign-up" className="c-nav__cta -cta">{dict.navigation.signup}</Link>  }
-        <Go.GoThreeBars className="c-navHam" onClick={overlaySetter} />
+          {mobile ? <button className="c-nav__cta -cta">Download</button> : <Link to="/sign-up" className="c-nav__cta -cta">{dict.navigation.signup}</Link>}
+          <Go.GoThreeBars className="c-navHam" onClick={() => overlaySetter()} />
         </div>
       </header>
     </div>

@@ -8,7 +8,9 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  padding: 3rem;
+  padding: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
 
   .contactHeading {
     color: $text-secondary;
@@ -32,7 +34,7 @@
       background-color: rgba($dark-blue, 0.55);
       border-radius: inherit;
       text-align: left;
-      padding: 60px 30px;
+      padding: 4rem 3rem;
 
       @for $i from 1 through 5 {
         *:nth-child(#{$i}) {
@@ -57,7 +59,9 @@
           border-radius: $border-radius--primary;
 
           a {
-            @include font--primary(300);
+            @include font--primary(400);
+            @include button;
+          
             color: $text-primary;
             line-height: 15px;
 
@@ -74,9 +78,9 @@
     }
 
     #contactForm {
-      background-color: rgba($background, 0.4);
+      background-color: rgba($background, 0.1);
       border-radius: inherit;
-      padding: 40px 30px;
+      padding: 4rem 3rem;
       display: flex;
       flex-direction: column;
       @include font--primary(700);
@@ -157,9 +161,10 @@
         margin-bottom: 1.5rem;
 
         h4 {
-          font-weight: 700;
+          @include font--primary(500);
           margin-bottom: 0;
           @include drop-in-animation(0.65 + 0.1s);
+          @include label;
         }
 
         .customRadioContainer {
@@ -179,8 +184,8 @@
       button {
         margin-left: auto;
         padding: 0.4rem 3rem;
-        background: $dark-blue;
-        border: 2px solid darken($dark-blue, 10%);
+        background: $special-primary;
+        border: 2px solid darken($special-primary, 10%);
         transition: all 500ms;
         color: $text-primary;
         box-shadow: $box-shadow--primary;

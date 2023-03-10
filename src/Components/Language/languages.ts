@@ -68,6 +68,7 @@ export const translations = {
         text: "Robin Assistant is a revolutionary new tool that offers a helping hand to people with special needs and their caring companions, making everyday activities more manageable and enjoyable.",
         learn: "Learn more",
         benefits_title: "Benefits",
+        benefits_text: "Robin has several benefits to make your daily life as comfortable as possible. What are the benefits of Robin Assistant and why should you use it?",
         benefits_independence: {
           title: "Improved Independence",
           text: "Robin reminds users to take medication or keep appointments can help them stay on top of their schedules and reduce their reliance on caregivers or family members."
@@ -81,20 +82,25 @@ export const translations = {
           text: "Robin is designed to help people with brain injuries can improve their ability to complete tasks efficiently."
         },
       },
-      testimonials: {
-        title: "",
-        sub: "",
-      },
       about: {
         title: "",
         sub: "",
       },
-
-    },
-    signup: {
-
-    },
-    login: {
+      contact: {
+        form_title: "Contact Information",
+        form_text_first: "Fill in the contact form and our team will",
+        form_text_second: "get back to you as soon as possible!",
+        firstname: "Firstname",
+        lastname: "Surname",
+        email: "Email",
+        phone: "Phone number",
+        question_first: "What's",
+        question_second: "your",
+        question_third: "question",
+        question_fourth: "about?",
+        question_fifth: "",
+        message: "Message",
+      },
 
     },
   },
@@ -114,24 +120,39 @@ export const translations = {
         text: "Robin Assistant is een revolutionaire nieuwe tool die een helpende hand biedt aan mensen met speciale behoeften en hun zorgzame metgezellen, waardoor dagelijkse activiteiten beter beheersbaar en leuker worden.",
         learn: "Lees meer",
         benefits_title: "Voordelen",
+        benefits_text: "Robin heeft meerdere voordelen om jou dagelijks leven zo comfortabel mogelijk te maken. Wat zijn de voordelen van Robin Assistant en waarom zou je het moeten gebruiken?",
         benefits_independence: {
-          title: "Verbeterde",
-          text: ""
+          title: "Verterde Onafhankelijkheid",
+          text: "Robin herinnert gebruikers eraan medicijnen in te nemen of afspraken na te komen, zodat ze hun schema's bij kunnen houden en minder afhankelijk worden van zorgverleners of familieleden."
         },
         benefits_stress: {
-          title: "",
-          text: ""
+          title: "Minder Stress",
+          text: "Robin verdeelt taken in kleinere, beter beheersbare stappen en kan helpen deze gevoelens te verminderen en ervoor te zorgen dat taken haalbaarder aanvoelen."
         },
         benefits_productivity: {
-          title: "",
-          text: ""
+          title: "Verhoogde productiviteit",
+          text: "Robin is designed to help people with brain injuries can improve their ability to complete tasks efficiently."
         },
       },
-    },
-    signup: {
+      about: {
 
-    },
-    login: {
+      },
+      contact: {
+        form_title: "Contact Informatie",
+        form_text_first: "Vul in het contact formulier en ons team zal",
+        form_text_second: "zo snel mogelijk bij u terug komen!",
+        firstname: "Voornaam",
+        lastname: "Achternaam",
+        email: "Email",
+        phone: "Telefoon nummer",
+        question_about: "Waar gaat je vraag over?",
+        question_first: "Waar",
+        question_second: "gaat",
+        question_third: "je",
+        question_fourth: "vraag",
+        question_fifth: "over?",
+        message: "Bericht",
+      },
 
     },
   },

@@ -2,25 +2,28 @@ import React from 'react';
 import * as FA from 'react-icons/fa'
 import ContactForm from './ContactForm';
 import './Contact.scss';
+import { useLanguageContext } from '../Language/LanguageProvider';
 
 function Contact() {
+  const { dict } = useLanguageContext();
+
   return (
     <div className='c-contact'>
       <div id='contactFormWrapper'>
         <div className='contactInfo'>
-          <h3>Contact Information</h3>
-          <p>Fill in the contact form and our team will <br /> get back to you as soon as possible!</p>
+          <h3>{dict.home.contact.form_title}</h3>
+          <p>{dict.home.contact.form_text_first} <br /> {dict.home.contact.form_text_second}</p>
           <ul>
             <li>
               <a href={`tel:+31 6 82 794 205`} rel='noreferrer'>
                 <FA.FaPhoneAlt />
-                +31 6 21 541 073
+                +31 61 3270609
               </a>
             </li>
             <li>
-              <a href="mailto:info@robinassists.me" target='_blank' rel='noreferrer'>
+              <a href="mailto:milos@bemikasoftware.com" target='_blank' rel='noreferrer'>
                 <FA.FaMailBulk />
-                Info@robinassists.me
+                Milos@bemikasoftware.com
               </a>
             </li>
             <li>

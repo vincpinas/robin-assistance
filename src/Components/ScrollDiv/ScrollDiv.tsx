@@ -122,12 +122,24 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
         </div>
         <div className="c-scrolldiv__text -second">
           <h2>{dict.home.scroll.benefits_title}</h2>
-          <div className="c-scrolldiv__cards">
-
-          </div>
+          <h5>{dict.home.scroll.benefits_text}</h5>
+          <ul>
+            <li>
+              <h4>{dict.home.scroll.benefits_independence.title}</h4>
+              <p>{dict.home.scroll.benefits_independence.text}</p>
+            </li>
+            <li>
+              <h4>{dict.home.scroll.benefits_stress.title}</h4>
+              <p>{dict.home.scroll.benefits_stress.text}</p>
+            </li>
+            <li>
+              <h4>{dict.home.scroll.benefits_productivity.title}</h4>
+              <p>{dict.home.scroll.benefits_productivity.text}</p>
+            </li>
+          </ul>
         </div>
       </div>
-      <div className="-page"></div>
+      <div className="c-scrolldiv -page"></div>
     </>
 
   )

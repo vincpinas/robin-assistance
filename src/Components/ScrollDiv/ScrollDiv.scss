@@ -1,4 +1,5 @@
 @import "../../Scss/Variables";
+@import "../../Scss/Mixins";
 
 .c-scrolldiv {
   &__wrapper {
@@ -28,6 +29,12 @@
     max-height: 100%;
   }
 
+  &.-page {
+    @media #{$mobile-down} {
+      display: none;
+    }
+  }
+
   &__text {
     max-width: 50%;
     display: flex;
@@ -38,7 +45,11 @@
 
     @media #{$normal-down} {
       max-width: 100%;
-      padding: 4rem 6rem;
+      padding: 4rem 2rem;
+    }
+
+    @media #{$mobile-down} {
+      height: 50%;
     }
 
     &.-second {
@@ -47,8 +58,16 @@
 
       @media #{$normal-down} {
         max-width: 100%;
-        padding: 4rem 6rem;
+        padding: 4rem 2rem;
       }
+    }
+
+    h5 {
+      @include font--primary(400);
+    }
+
+    h4 {
+      @include font--primary(500);
     }
   }
 

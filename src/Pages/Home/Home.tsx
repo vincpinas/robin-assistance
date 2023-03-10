@@ -11,7 +11,7 @@ function Home() {
       <div className="p-home">
         <div className="c-seperator" />
         <ScrollDiv />
-        <SectionWrapper id="about" section={<div className="-page">About</div>} />
+        {/* <SectionWrapper id="about" section={<div className="-page">About</div>} /> */}
         <SectionWrapper id="contact" section={<Contact />} />
       </div>
     </>
