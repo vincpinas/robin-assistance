@@ -16,7 +16,7 @@
     max-height: 18px;
     min-width: 18px;
     min-height: 18px;
-    border: 2px solid $dark-blue;
+    border: 2px solid $text-contrast;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -25,7 +25,7 @@
     transition: all 100ms;
 
     &.unselected {
-      border: 2px solid $dark-blue;
+      border: 2px solid $text-contrast;
     }
 
     .radio-inner-circle {
@@ -35,7 +35,7 @@
       min-width: 10px;
       min-height: 10px;
       border-radius: 50%;
-      background-color: $dark-blue;
+      background-color: $text-contrast;
       transition: all 100ms;
       @include customRadioAni(10px);
 
@@ -50,14 +50,14 @@
 
   .helper-text {
     margin: 0 !important;
-    color: $text-primary;
+    color: $text-contrast;
     padding-right: 8px;
     transition: all 100ms;
     @include input;
     @include font--primary(400);
 
     &.unselected {
-      color: $dark-blue;
+      color: $text-contrast;
     }
   }
 }

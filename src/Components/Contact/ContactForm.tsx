@@ -3,7 +3,6 @@ import CustomRadio from '../../Components/CustomRadio/CustomRadio';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import RubberSpan from '../RubberSpan/RubberSpan';
-import { MdOutlineScheduleSend, MdOutlineCancelScheduleSend, MdOutlineSend, MdCheck } from 'react-icons/md';
 import { useContact } from '../../requests';
 import { useLanguageContext } from '../Language/LanguageProvider';
 
@@ -151,9 +150,9 @@ function ContactForm() {
         </label>
       </span>
       <button type='submit' disabled={isLoading}
-        className={isLoading ? '' : mailStatus === null ? '' : mailStatus ? 'succces' : 'error'}
+        className={isLoading ? '-cta' : mailStatus === null ? '-cta' : mailStatus ? 'succces -cta' : 'error -cta'}
       >
-        {isLoading ? <MdOutlineScheduleSend /> : mailStatus === null ? <MdOutlineSend /> : mailStatus ? <MdCheck /> : <MdOutlineCancelScheduleSend />}
+        Send Message
       </button>
     </form>
   )

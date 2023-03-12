@@ -4,7 +4,6 @@
 .c-contact {
   width: 100%;
   display: flex;
-  flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -20,21 +19,30 @@
 
   #contactFormWrapper {
     display: flex;
-    background: rgba($background, 0.4);
-    border-radius: $border-radius--secondary;
-    box-shadow: $box-shadow--primary;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 
     @media #{$tablet-down} {
+      border-top-left-radius: $border-radius--secondary;
+      border-top-right-radius: $border-radius--secondary;
+      border-bottom-left-radius: 0;
       flex-direction: column;
-      max-width: 100%;
     }
 
     .contactInfo {
-      color: $text-primary;
-      background-color: rgba($dark-blue, 0.55);
+      color: $text-contrast;
+      background: rgba($color-white, 0.35);
       border-radius: inherit;
       text-align: left;
       padding: 4rem 3rem;
+      border-top-left-radius: $border-radius--secondary;
+      border-bottom-left-radius: $border-radius--secondary;
+
+      @media #{$tablet-down} {
+        border-top-left-radius: $border-radius--secondary;
+        border-top-right-radius: $border-radius--secondary;
+        border-bottom-left-radius: 0;
+      }
 
       @for $i from 1 through 5 {
         *:nth-child(#{$i}) {
@@ -43,7 +51,6 @@
       }
 
       h3 {
-        color: $text-primary;
         font-weight: 700;
       }
 
@@ -61,8 +68,8 @@
           a {
             @include font--primary(400);
             @include button;
-          
-            color: $text-primary;
+
+            color: $text-contrast;
             line-height: 15px;
 
             svg {
@@ -71,152 +78,158 @@
           }
 
           &:hover {
-            border: solid 2px $light-blue;
+            border: solid 2px $text-contrast;
+          }
+        }
+      }
+    }
+  }
+
+  #contactForm {
+    background-color: $color-white;
+    border-radius: inherit;
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    @include font--primary(700);
+    border-top-right-radius: $border-radius--secondary;
+    border-bottom-right-radius: $border-radius--secondary;
+
+    @media #{$tablet-down} {
+      border-bottom-left-radius: $border-radius--secondary;
+      border-bottom-right-radius: $border-radius--secondary;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    .inputRow {
+      display: flex;
+
+      @media #{$tablet-down} {
+        flex-direction: column;
+        max-width: 100%;
+      }
+
+      .iF-label {
+        color: $dark-blue;
+      }
+
+      .iFe-label {
+        color: $text-contrast;
+      }
+
+      .iFerr-label {
+        color: $color-red;
+      }
+
+      label {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        color: $text-hover;
+        @include label;
+
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}) {
+            @include drop-in-animation(0.5 + $i * 0.1s);
+          }
+        }
+
+        &:first-child {
+          margin-right: 6.5rem;
+        }
+
+        input {
+          background: none;
+          margin-top: 0.5rem;
+          border: none;
+          border-bottom: 2px solid $text-hover;;
+          color: $text-contrast;
+          @include input;
+          padding: 3px;
+          outline: none;
+          caret-color: $text-hover;
+
+          &:focus {
+            border-bottom: 2px solid $text-contrast;
+          }
+        }
+
+        .iFerr-input {
+          border-bottom: 2px solid $color-red !important;
+
+          &::placeholder {
+            color: $color-red;
+          }
+
+          &:focus {
+            border-bottom: 2px solid $color-red !important;
           }
         }
       }
     }
 
-    #contactForm {
-      background-color: rgba($background, 0.1);
-      border-radius: inherit;
-      padding: 4rem 3rem;
-      display: flex;
-      flex-direction: column;
-      @include font--primary(700);
+    div {
+      text-align: left;
+      width: 100%;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
 
-      .inputRow {
+      h4 {
+        @include font--primary(500);
+        margin-bottom: 0;
+        @include drop-in-animation(0.65 + 0.1s);
+        @include label;
+        color: $text-contrast;
+      }
+
+      .customRadioContainer {
         display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
 
-        @media #{$tablet-down} {
-          flex-direction: column;
-          max-width: 100%;
-        }
-
-        .iF-label {
-          color: $dark-blue;
-        }
-
-        .iFe-label {
-          color: $label-highlight;
-        }
-
-        .iFerr-label {
-          color: $color-red;
-        }
-
-        label {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          text-align: left;
-          color: $text-hover;
-          @include label;
-
-          @for $i from 1 through 5 {
-            &:nth-child(#{$i}) {
-              @include drop-in-animation(0.5 + $i * 0.1s);
-            }
-          }
-
-          &:first-child {
-            margin-right: 6.5rem;
-          }
-
-
-          input {
-            background: none;
-            margin-top: 0.5rem;
-            border: none;
-            border-bottom: 2px solid $dark-blue;
-            color: $text-primary;
-            @include input;
-            padding: 3px;
-            outline: none;
-            caret-color: $text-hover;
-
-            &:focus {
-              border-bottom: 2px solid $dark-blue;
-            }
-          }
-
-          .iFerr-input {
-            border-bottom: 2px solid $color-red !important;
-
-            &::placeholder {
-              color: $color-red;
-            }
-
-            &:focus {
-              border-bottom: 2px solid $color-red !important;
-            }
+        @for $i from 1 through 5 {
+          span:nth-child(#{$i}) {
+            @include drop-in-animation(0.75 + $i * 0.1s);
           }
         }
       }
+    }
 
-      div {
-        text-align: left;
-        width: 100%;
-        margin-top: 1rem;
-        margin-bottom: 1.5rem;
+    button {
+      margin-left: auto;
+      // padding: 0.4rem 3rem;
+      // background: $special-primary;
+      // transition: all 500ms;
+      // color: $text-primary;
+      // box-shadow: $box-shadow--primary;
+      // font-weight: 500;
+      // border-radius: $border-radius--primary;
 
-        h4 {
-          @include font--primary(500);
-          margin-bottom: 0;
-          @include drop-in-animation(0.65 + 0.1s);
-          @include label;
-        }
-
-        .customRadioContainer {
-          display: flex;
-          flex-direction: row;
-          align-items: flex-start;
-          flex-wrap: wrap;
-
-          @for $i from 1 through 5 {
-            span:nth-child(#{$i}) {
-              @include drop-in-animation(0.75 + $i * 0.1s);
-            }
-          }
-        }
+      &.error {
+        background: $color-red;
       }
 
-      button {
-        margin-left: auto;
-        padding: 0.4rem 3rem;
-        background: $special-primary;
-        border: 2px solid darken($special-primary, 10%);
-        transition: all 500ms;
-        color: $text-primary;
-        box-shadow: $box-shadow--primary;
-        font-weight: 500;
-        border-radius: $border-radius--primary;
-
-        &.error {
-          background: $color-red;
-          border: 2px solid darken($color-red, 10%);
-        }
-
-        &.succces {
-          background: $color-green;
-          border: 2px solid darken($color-green, 10%);
-        }
-
-        span {
-          display: flex
-        }
-
-        svg {
-          @include font--primary(800);
-          font-size: 1.8em;
-        }
+      &.succces {
+        background: $color-green;
       }
 
-      #messageRow {
-        label {
-          @include drop-in-animation(0.9 + 0.1s);
-          margin: 0 0 1rem 0;
-        }
+      span {
+        display: flex
+      }
+
+      svg {
+        @include font--primary(800);
+        font-size: 1.8em;
+      }
+    }
+
+    #messageRow {
+      label {
+        @include drop-in-animation(0.9 + 0.1s);
+        margin: 0 0 1rem 0;
       }
     }
   }
