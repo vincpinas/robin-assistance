@@ -25,9 +25,18 @@ function Navigation({ logoState }: NavigationProps) {
     if (location.pathname === "/") document.querySelector("body")?.scrollIntoView({ behavior: "smooth", block: "start" });
     else navigate("/");
   }
+  
+  const page = (() => {
+    if (location.pathname === "/") return "";
+    else {
+      let temp = location.pathname.replace("-", "");
+      temp = temp.replace("/", "-")
+      return temp;
+    }
+  })();
 
   return (
-    <div className="c-nav">
+    <div className={`c-nav ${page}`}>
       <div className={overlay ? "c-navOverlay active" : "c-navOverlay"} onClick={() => overlaySetter()}>
         <ul className="c-navLinkList">
           <button onClick={logoClick}>Home</button>
@@ -36,12 +45,13 @@ function Navigation({ logoState }: NavigationProps) {
               <>
                 <button onClick={() => overlaySetter("#about")}>{dict.navigation.about}</button>
                 <button onClick={() => overlaySetter("#contact")}>Contact</button>
+                <Link to="/sign-up">{dict.navigation.signup}</Link>
               </>
               : null
           }
         </ul>
       </div>
-      <header className="c-navHeader">
+      <header className={`c-navHeader ${page}`}>
         <AnimatedLogo className="c-nav__logo" onClick={logoClick} hidden={logoState ? logoState : false} />
         <div className="c-navLinkWrapper">
           <button onClick={logoClick}>Home</button>

@@ -21,7 +21,7 @@ function App() {
       <Navigation logoState={logoState} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/sign-up" element={null} />
+        <Route path="/sign-up" element={<div className="-page" style={{background:"#024798"}} />} />
       </Routes>
     </>
   )

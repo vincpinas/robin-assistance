@@ -24,6 +24,10 @@
     }
   }
 
+  &__cta {
+    background-color: $dark-blue;
+  }
+
   &Options {
     display: flex;
     justify-content: center;
@@ -114,9 +118,11 @@
     padding: $base-margin;
     display: flex;
     flex-direction: column;
+    text-align: center;
 
     a, button {
       color: $text-primary;
+      @include font--primary(400);
       margin: calc($base-margin / 3);
       // @include button-hovered;
       padding: 0.25rem 1rem;
@@ -127,8 +133,18 @@
       border-radius: $border-radius--primary;
     }
 
-    button:hover {
+    a:hover, button:hover {
       background-color: rgba($background, 0.5);
     }
+  }
+}
+
+.c-nav.-signup {
+  .c-navHeader {
+    background: rgba(0, 0, 0, 0.16);
+  }
+
+  .c-nav__cta {
+    background-color: $special-primary;
   }
 }

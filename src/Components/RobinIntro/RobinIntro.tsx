@@ -25,7 +25,7 @@ function RobinIntro() {
         toggleActions: "play none pause reverse",
       },
     })
-      .fromTo(".c-nav__cta", { background: "#024798", delay: 0, }, {
+      .to(".c-nav__cta", {
         background: "#ff7f50",
         delay: 0,
       }, 1)
