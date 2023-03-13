@@ -85,7 +85,7 @@ function ContactForm() {
           <input
             className={formik.errors.firstname ? 'iFerr-input' : ''}
             type='text' onFocus={lAF} onChange={lOC} onBlur={lAB}
-            placeholder={dict.home.contact.firstname} id='firstname'
+            placeholder={dict.home.contact.firstname_placeholder} id='firstname'
             defaultValue={formik.initialValues.firstname}
           />
           {formik.errors.firstname && <span className='errorMessage'>{formik.errors.firstname}</span>}
@@ -95,7 +95,7 @@ function ContactForm() {
           <input
             className={formik.errors.lastname ? 'iFerr-input' : ''}
             type='text' onFocus={lAF} onChange={lOC} onBlur={lAB}
-            placeholder={dict.home.contact.lastname} id='lastname'
+            placeholder={dict.home.contact.lastname_placeholder} id='lastname'
             defaultValue={formik.initialValues.lastname}
           />
           {formik.errors.lastname && <span className='errorMessage'>{formik.errors.lastname}</span>}
@@ -107,7 +107,7 @@ function ContactForm() {
           <input
             className={formik.errors.email ? 'iFerr-input' : ''}
             type='text' onFocus={lAF} onChange={lOC} onBlur={lAB}
-            placeholder='example@gmail.com' id='email'
+            placeholder={dict.home.contact.email_placeholder} id='email'
             defaultValue={formik.initialValues.email}
           />
           {formik.errors.email && <span className='errorMessage'>{formik.errors.email}</span>}
@@ -117,7 +117,7 @@ function ContactForm() {
           <input
             className={formik.errors.phone ? 'iFerr-input' : ''}
             type='text' onFocus={lAF} onChange={lOC} onBlur={lAB}
-            placeholder='+31 6 72 732 532' id='phone'
+            placeholder={dict.home.contact.phone_placeholder} id='phone'
             defaultValue={formik.initialValues.phone}
           />
           {formik.errors.phone && <span className='errorMessage'>{formik.errors.phone}</span>}
@@ -132,9 +132,9 @@ function ContactForm() {
           <RubberSpan letters={dict.home.contact.question_fifth} margin={5} />
         </h4>
         <div className='customRadioContainer'>
-          <CustomRadio text="Recruitment" onChange={setSelected} selected={selected} value="recruitment" id="recruitment" />
-          <CustomRadio text="Web Design" onChange={setSelected} selected={selected} value="webdesign" id="webdesign" />
-          <CustomRadio text="Other" onChange={setSelected} selected={selected} value="other" id="other" />
+          <CustomRadio text={dict.home.contact.subject_first} onChange={setSelected} selected={selected} value="recruitment" id="recruitment" />
+          <CustomRadio text={dict.home.contact.subject_second} onChange={setSelected} selected={selected} value="webdesign" id="webdesign" />
+          <CustomRadio text={dict.home.contact.subject_third} onChange={setSelected} selected={selected} value="other" id="other" />
         </div>
       </div>
       <span className='inputRow' id='messageRow'>
@@ -143,7 +143,7 @@ function ContactForm() {
           <input
             className={formik.errors.message ? 'iFerr-input' : ''}
             type='text' onFocus={lAF} onChange={lOC} onBlur={lAB}
-            placeholder='Write a short message here 😊' id='message'
+            placeholder={dict.home.contact.message_placeholder} id='message'
             defaultValue={formik.initialValues.message}
           />
           {formik.errors.message && <span className='errorMessage'>{formik.errors.message}</span>}

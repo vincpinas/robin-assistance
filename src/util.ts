@@ -29,7 +29,7 @@ export const mobile = (() => {
 })()
 
 export const scrollSetter = (elem: any) => {
-  document.querySelector(elem).scrollIntoView({ behavior: "smooth", block: "end" });
+  document.querySelector(elem).scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 export const API_URL = () => {

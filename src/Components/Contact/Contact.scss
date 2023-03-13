@@ -123,12 +123,16 @@
       }
 
       label {
-        width: 100%;
+        width: 16rem;
         display: flex;
         flex-direction: column;
         text-align: left;
         color: $text-hover;
         @include label;
+
+        @media #{$tablet-down} {
+          width: 100%;
+        }
 
         @for $i from 1 through 5 {
           &:nth-child(#{$i}) {
@@ -137,7 +141,7 @@
         }
 
         &:first-child {
-          margin-right: 6.5rem;
+          margin-right: 2rem;
         }
 
         input {
@@ -228,6 +232,7 @@
 
     #messageRow {
       label {
+        width: 100%;
         @include drop-in-animation(0.9 + 0.1s);
         margin: 0 0 1rem 0;
       }

@@ -79,7 +79,7 @@ export const translations = {
         },
         benefits_productivity: {
           title: "Increased Productivity",
-          text: "Robin is designed to help people with brain injuries can improve their ability to complete tasks efficiently."
+          text: "Robin is designed to help people with brain injuries improve their ability to complete tasks efficiently."
         },
       },
       about: {
@@ -90,16 +90,24 @@ export const translations = {
         form_title: "Contact Information",
         form_text_first: "Fill in the contact form and our team will",
         form_text_second: "get back to you as soon as possible!",
-        firstname: "Firstname",
+        firstname: "Name",
+        firstname_placeholder: "E.g. David",
         lastname: "Surname",
+        lastname_placeholder: "E.g. Smith",
         email: "Email",
+        email_placeholder: "E.g. Davidsmith@mail.com",
         phone: "Phone number",
+        phone_placeholder: "E.g. 31 6 12 34 56 78",
         question_first: "What's",
         question_second: "your",
         question_third: "question",
         question_fourth: "about?",
         question_fifth: "",
+        subject_first: "Mobile App",
+        subject_second: "Dashboard",
+        subject_third: "Other",
         message: "Message",
+        message_placeholder: "Write your message here 😆",
       },
 
     },
@@ -131,7 +139,7 @@ export const translations = {
         },
         benefits_productivity: {
           title: "Verhoogde productiviteit",
-          text: "Robin is designed to help people with brain injuries can improve their ability to complete tasks efficiently."
+          text: "Robin is designed to help people with brain injuries improve their ability to complete tasks efficiently."
         },
       },
       about: {
@@ -141,17 +149,25 @@ export const translations = {
         form_title: "Contact Informatie",
         form_text_first: "Vul in het contact formulier en ons team zal",
         form_text_second: "zo snel mogelijk bij u terug komen!",
-        firstname: "Voornaam",
+        firstname: "Naam",
+        firstname_placeholder: "Bijv. David",
         lastname: "Achternaam",
+        lastname_placeholder: "Bijv. Smith",
         email: "Email",
+        email_placeholder: "Bijv. davidsmit@mail.com",
         phone: "Telefoon nummer",
+        phone_placeholder: "Bijv. 31 6 12 34 56 78",
         question_about: "Waar gaat je vraag over?",
         question_first: "Waar",
         question_second: "gaat",
         question_third: "je",
         question_fourth: "vraag",
         question_fifth: "over?",
+        subject_first: "Mobiele App",
+        subject_second: "Dashboard",
+        subject_third: "Anders",
         message: "Bericht",
+        message_placeholder: "Schrijf je bericht hier 😁",
       },
 
     },
