@@ -152,7 +152,7 @@ function ContactForm() {
       <button type='submit' disabled={isLoading}
         className={isLoading ? '-cta' : mailStatus === null ? '-cta' : mailStatus ? 'succces -cta' : 'error -cta'}
       >
-        Send Message
+        {dict.home.contact.send}
       </button>
     </form>
   )

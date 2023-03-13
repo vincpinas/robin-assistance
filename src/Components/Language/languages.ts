@@ -108,6 +108,7 @@ export const translations = {
         subject_third: "Other",
         message: "Message",
         message_placeholder: "Write your message here 😆",
+        send: "Send Message",
       },
 
     },
@@ -168,6 +169,7 @@ export const translations = {
         subject_third: "Anders",
         message: "Bericht",
         message_placeholder: "Schrijf je bericht hier 😁",
+        send: "Stuur Bericht",
       },
 
     },
