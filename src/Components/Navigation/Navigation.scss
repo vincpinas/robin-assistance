@@ -21,6 +21,14 @@
 
     @media #{$mobile-down} {
       padding: $base-margin;
+
+      .-cta {
+        display: none;
+      }
+
+      .c-language__button {
+        display: none;
+      }
     }
   }
 
@@ -103,7 +111,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     z-index: $index-4;
     background-color: rgba($background, 0.8);
     transition: all $transition-normal;
@@ -111,6 +119,11 @@
 
     &.active {
       left: 0;
+
+      .c-language__listWrapper {
+        top: 70%;
+        left: 1.5rem;
+      }
     }
   }
 
@@ -118,19 +131,29 @@
     padding: $base-margin;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
 
-    a, button {
+    &Button {
       color: $text-primary;
       @include font--primary(400);
       margin: calc($base-margin / 3);
-      // @include button-hovered;
-      padding: 0.25rem 1rem;
+      @include h3;
+      margin-bottom: 0.5rem;
       background: none;
-      border: none;
       outline: none;
+      border: none;
+      padding: 0.25rem 0rem;
       transition: $transition-fast;
       border-radius: $border-radius--primary;
+    }
+
+    &Close {
+      position: absolute;
+      font-size: 30px;
+      top: 2rem;
+      right: 2.5rem;
     }
 
     a:hover, button:hover {

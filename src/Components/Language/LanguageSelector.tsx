@@ -7,8 +7,11 @@ import { useLanguageContext } from "./LanguageProvider"
 import Cookies from "cookies-js"
 import { uniqueId } from "../../util"
 
+interface LanguageSelectorProps {
+  onClick?: () => void;
+}
 
-function LanguageSelector() {
+function LanguageSelector({ onClick }: LanguageSelectorProps) {
   const [openList, setOpenList] = useState<boolean>(false);
   // Get current lang from the language context provider.
   const languageList = languages.sort((a, b) => b.status - a.status);
@@ -36,7 +39,9 @@ function LanguageSelector() {
                   // Set language in cookies for persistence
                   Cookies.set("lang", JSON.stringify(lang));
                   // Set new lang in context.
-                  setLang(lang)
+                  setLang(lang);
+                  
+                  if(onClick) onClick();
                 }
               }
 

@@ -10,11 +10,14 @@ import wave3 from "../../Assets/waves/wave3.svg";
 import wave4 from "../../Assets/waves/wave4.svg";
 import { scrollSetter } from "../../util";
 import AnimatedRobin from "../AnimatedRobin/AnimatedRobin";
+import { useLanguageContext } from "../Language/LanguageProvider";
 
 function RobinIntro() {
   let NavTL: GSAPTimeline;
   let SunTL: GSAPTimeline;
   let dolphinTL: GSAPTimeline;
+
+  const { dict } = useLanguageContext();
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -87,7 +90,7 @@ function RobinIntro() {
     <div className="c-robinintro -page">
       <div className="c-robinintro__scrollWrapper">
         <button className="c-robinintro__scroll" onClick={() => scrollSetter(".c-scrolldiv__text")}>
-          Scroll down to learn more
+          {dict.home.scroll.scroll_down}
           <br />
           <AiOutlineDown />
         </button>

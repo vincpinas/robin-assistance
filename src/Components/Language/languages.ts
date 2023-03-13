@@ -65,6 +65,7 @@ export const translations = {
     home: {
       scroll: {
         title: "Let Robin be your wingman!",
+        scroll_down: "Dive down to learn more",
         text: "Robin Assistant is a revolutionary new tool that offers a helping hand to people with special needs and their caring companions, making everyday activities more manageable and enjoyable.",
         learn: "Learn more",
         benefits_title: "Benefits",
@@ -126,6 +127,7 @@ export const translations = {
     home: {
       scroll: {
         title: "Laat Robin je wingman zijn!",
+        scroll_down: "Zwem naar beneden om meer te lezen",
         text: "Robin Assistant is een revolutionaire nieuwe tool die een helpende hand biedt aan mensen met speciale behoeften en hun zorgzame metgezellen, waardoor dagelijkse activiteiten beter beheersbaar en leuker worden.",
         learn: "Lees meer",
         benefits_title: "Voordelen",

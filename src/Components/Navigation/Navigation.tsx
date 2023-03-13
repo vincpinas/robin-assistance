@@ -25,7 +25,7 @@ function Navigation({ logoState }: NavigationProps) {
     if (location.pathname === "/") document.querySelector("body")?.scrollIntoView({ behavior: "smooth", block: "start" });
     else navigate("/");
   }
-  
+
   const page = (() => {
     if (location.pathname === "/") return "";
     else {
@@ -37,18 +37,20 @@ function Navigation({ logoState }: NavigationProps) {
 
   return (
     <div className={`c-nav ${page}`}>
-      <div className={overlay ? "c-navOverlay active" : "c-navOverlay"} onClick={() => overlaySetter()}>
+      <div className={overlay ? "c-navOverlay active" : "c-navOverlay"}>
+          <Go.GoThreeBars className="c-navLinkListClose" onClick={() => overlaySetter()} />
         <ul className="c-navLinkList">
-          <button onClick={logoClick}>Home</button>
+          <button onClick={() => { logoClick(); overlaySetter(); }} className="c-navLinkListButton">Home</button>
           {
             location.pathname === "/" ?
               <>
-                <button onClick={() => overlaySetter("#about")}>{dict.navigation.about}</button>
-                <button onClick={() => overlaySetter("#contact")}>Contact</button>
-                <Link to="/sign-up">{dict.navigation.signup}</Link>
+                <button onClick={() => overlaySetter("#about")} className="c-navLinkListButton">{dict.navigation.about}</button>
+                <button onClick={() => overlaySetter("#contact")} className="c-navLinkListButton">Contact</button>
               </>
               : null
-          }
+            }
+            <LanguageSelector onClick={() => overlaySetter()} />
+            <Link to="/sign-up" className="c-nav__cta -cta" onClick={() => overlaySetter()}>{dict.navigation.signup}</Link>
         </ul>
       </div>
       <header className={`c-navHeader ${page}`}>
