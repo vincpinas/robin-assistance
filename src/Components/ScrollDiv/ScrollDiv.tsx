@@ -117,10 +117,10 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
           <p>{dict.home.scroll.text}</p>
           <span className="c-scrolldiv__textButtons">
             {mobile ? <button className="-cta">Download</button> : <Link to="/sign-up" className="-cta">{dict.navigation.signup}</Link>}
-            <button onClick={() => scrollSetter("#about")} className="-second -cta">{dict.home.scroll.learn}</button>
+            <button onClick={() => scrollSetter("#benefits")} className="-second -cta">{dict.home.scroll.learn}</button>
           </span>
         </div>
-        <div className="c-scrolldiv__text -second">
+        <div className="c-scrolldiv__text -second" id="benefits">
           <h2>{dict.home.scroll.benefits_title}</h2>
           <h5>{dict.home.scroll.benefits_text}</h5>
           <ul>
