@@ -108,7 +108,7 @@ function ScrollDiv({ markers, }: scrollDivOpts) {
 
   return (
     <>
-      <div className="c-scrolldiv__wrapper">
+      <div className="c-scrolldiv__wrapper" id="about">
         <div className="c-scrolldiv__move" style={markers ? markerStyle : {}}>
           <canvas ref={canvasRef} className="c-scrolldiv__canvas" />
         </div>
